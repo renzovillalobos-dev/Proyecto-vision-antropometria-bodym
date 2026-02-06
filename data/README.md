@@ -11,4 +11,4 @@ Debido a restricciones de tamaño (25Mb), el dataset completo no se incluye en e
 
 ## Acceso
 El dataset puede obtenerse desde:
-[ENLACE OFICIAL AL DATASET]
+https://adversarialbodysim.github.io/
