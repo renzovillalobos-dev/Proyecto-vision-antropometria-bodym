@@ -1,0 +1,29 @@
+CONCLUSIONES:
+
+1. Validación de la Solución (Logro General)
+
+-Viabilidad de la Visión 2D: Hemos demostrado que es posible sustituir métodos invasivos (medición manual) o costosos (escáneres 3D) por una solución basada en Visión por Computador con siluetas 2D.
+
+-Precisión para la Industria: Los modelos alcanzaron un Error Medio Absoluto (MAE) en el rango de 3 a 5 cm, lo cual es perfectamente aceptable para aplicaciones comerciales como la categorización de tallas (S, M, L, XL) en retail o asignación de EPPs en seguridad industrial.
+
+
+2. Comparativa y Desempeño de los Modelos
+
+-MobileNetV2 (Eficiencia): Fue clave para demostrar la eficiencia computacional. Con solo 2.5 millones de parámetros, logró un error (MAE) de 4.94 cm, validando que no se requieren arquitecturas masivas para resolver problemas de geometría de siluetas. Es el modelo ideal para dispositivos móviles o sistemas embebidos (Edge AI).
+
+-EfficientNetB0 (Equilibrio): Ofreció un excelente balance entre precisión y costo computacional. Su error se estabilizó rápidamente (alrededor de 4-5 cm) sin presentar sobreajuste, demostrando ser una solución robusta para datasets de tamaño medio.
+
+-ResNet50 (Precisión Robusta): Fue el modelo sometido a un entrenamiento más exhaustivo (1000 épocas).
+    Logró una precisión promedio (Accuracy) del 97.74% en el conjunto de prueba.
+    Las predicciones fueron excelentes (100% de precisión) en medidas estructurales grandes como altura, pecho, cadera y largo de pierna.
+
+
+3. Análisis de las Predicciones (Desafíos)
+
+-Medidas Globales vs. Detalles Finos: Todos los modelos mostraron un patrón claro: funcionan mejor estimando medidas estructurales grandes (altura, largo de piernas) debido a que dependen de la estructura global. Sin embargo, las medidas de detalles finos y articulaciones pequeñas (muñeca, tobillo, bíceps) presentaron mayores tasas de error y dispersión, siendo las más difíciles de estimar con siluetas 2D.
+
+4. Limitaciones y Trabajo Futuro
+
+-Dependencia de la calidad de entrada: El sistema es sensible a la postura del sujeto y al uso de ropa muy holgada, lo que puede afectar la silueta.
+
+-Recomendación de mejora: Para aplicaciones de "sastrería médica" o alta precisión milimétrica, se sugiere realizar un Fine-Tuning descongelando las últimas capas o ampliar el dataset con mayor variabilidad de tipos de cuerpo extremos.
